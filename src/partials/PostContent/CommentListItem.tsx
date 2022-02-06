@@ -17,8 +17,12 @@ export default function CommentListItem({ commentId }: ParamsType) {
   if (isComment(comment)) {
     return (
       <li className="bg-slate-200 rounded-md shadow-md p-4 transition-all flex flex-col gap-2 w-full">
-        <span className="">{comment.username}</span>
-        <span className="text-sm">{moment(comment.time).format('MMM DD, YYYY')}</span>
+        <div className="flex flex-row justify-between">
+          <span className="text-base font-semibold">{comment.username}</span>
+          <span className="text-sm text-right">
+            {moment(comment.time).format('MMM DD, YYYY')}
+          </span>
+        </div>
         <span>{comment.content}</span>
       </li>
     );

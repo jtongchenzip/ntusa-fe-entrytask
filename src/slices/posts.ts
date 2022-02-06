@@ -91,7 +91,7 @@ export const editPost = createAsyncThunk(
   async ({ postId, title, author, content }: EditPostArgs, { dispatch }) => {
     await agent.patch(`/post/${postId}`, { title, author, content });
     // refetch (invalidate) all posts
-    dispatch(browseAllPosts());
+    dispatch(readPost({ postId }));
   },
 );
 
